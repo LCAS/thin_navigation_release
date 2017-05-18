@@ -1,0 +1,6 @@
+add_subdirectory(nav_global)
+add_subdirectory(ros_utils)
+add_subdirectory(localizer)
+add_subdirectory(planner)
+#add_subdirectory(scan_matcher)
+#add_subdirectory(mapper)

@@ -1,0 +1,8 @@
+crobot( pose [ 46.0  24.5  0  90 ]   name "robot0"  color "blue")
+crobot( pose [ 2.325  21.675  0  90 ]   name "robot1"  color "red")
+crobot( pose [ 22.8  21.975  0  90 ]   name "robot2"  color "cyan")
+crobot( pose [ 37.05  10.875  0  90 ]   name "robot3"  color "magenta")
+crobot( pose [ 44.0  11.0  0  90 ]   name "robot4"  color "blue")
+crobot( pose [ 10.725  12.0  0  90 ]   name "robot5"  color "red")
+crobot( pose [ 41.775  30.375  0  90 ]   name "robot6"  color "cyan")
+crobot( pose [ 16.575  12.375  0  90 ]   name "robot7"  color "magenta")

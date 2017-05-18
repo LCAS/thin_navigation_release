@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<launch>
+  <arg name="robotname" default="robot_0" />
+
+  <arg name="mapname" default="disB1" />
+  <arg name="initpose_x" default="0.0" />
+  <arg name="initpose_y" default="1.8" />
+  <arg name="initpose_th_rad" default="0.0" />
+
+  <group ns="$(arg robotname)">
+    
+    <!-- Run the map server -->
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find thin_navigation)/test/$(arg mapname).yaml" /> 
+
+    <node pkg="tf" type="static_transform_publisher" name="map_broadcaster" args="0 0 0 0 0 0 1 /map /$(arg robotname)/map 100" />
+    
+    <!-- Run the localization node -->
+    <node pkg="thin_navigation" type="thin_localizer_node" name="thin_localizer" output="screen">
+      	<param name="initial_pose_x" value="$(arg initpose_x)"/>
+      	<param name="initial_pose_y" value="$(arg initpose_y)"/>
+      	<param name="initial_pose_theta" value="$(arg initpose_th_rad)"/>
+      	<param name="global_frame_id" value="/$(arg robotname)/map"/>
+      	<param name="base_frame_id" value="/$(arg robotname)/base_link"/>
+      	<param name="odom_frame_id" value="/$(arg robotname)/odom"/>
+      	<param name="laser_topic" value="/$(arg robotname)/base_scan"/>
+   </node>
+
+    <!-- Run the motion planning node -->
+    <node pkg="thin_navigation" type="thin_planner_node" name="thin_planner" output="screen">
+	<param name="Ktv" value="1.0"/>
+      	<param name="Krv" value="1.0"/>      	
+	<param name="repulsive_t_scale" value="0.0"/>
+      	<param name="repulsive_r_scale" value="0.0"/>
+	<param name="max_tv" value="1.0"/>
+	<param name="max_rv" value="0.5"/>
+	<param name="max_t_acc" value="0.1"/>
+	<param name="max_r_acc" value="0.3"/>
+	<param name="min_attractor_distance" value="0.16"/>
+	<param name="max_attractor_distance" value="5.3"/>
+	<param name="robot_radius" value="0.3"/>
+      	<param name="safety_threshold" value="0.3"/>
+	<param name="distance_cost_factor" value="0.5"/>
+	<param name="distance_threshold" value="2.0"/>
+	<param name="local_map_dimension" value="6.0" />
+      	<param name="persistency" value="300" />
+	<param name="goal_tolerance_t" value="0.5" />
+      	<param name="goal_tolerance_r" value="3.14" />
+      	<param name="forced_max_range" value="5.0"/>
+	<param name="squared_endpoint_distance" value="0.01" />
+      	<param name="wait_cicle" value="100" />	
+	<param name="publish_global_plan" value="false"/>
+      	<param name="global_frame_id" value="/$(arg robotname)/map"/>
+      	<param name="base_frame_id" value="/$(arg robotname)/base_link"/>
+      	<param name="laser_topic" value="/$(arg robotname)/base_scan"/>
+      	<param name="command_vel_topic" value="/$(arg robotname)/cmd_vel"/>
+      	<param name="use_gui" value="true"/>
+   </node>
+   
+  </group>
+
+</launch>
