@@ -2,6 +2,12 @@
 Changelog for package thin_navigation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.0.2 (2017-05-22)
+------------------
+* added std_srvs as dep
+* package.xml edited online with Bitbucket
+* Contributors: Marc Hanheide
+
 0.0.1 (2017-05-18)
 ------------------
 * changed maintainer to Marc Hanheide
