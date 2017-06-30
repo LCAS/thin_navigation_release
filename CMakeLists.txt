@@ -211,3 +211,19 @@ ADD_SUBDIRECTORY(${PROJECT_SOURCE_DIR}/src)
 
 # make sure configure headers are built before any node using them
 add_dependencies(thin_planner_node ${PROJECT_NAME}_gencfg)
+
+
+
+# Mark cpp header files for installation
+install(DIRECTORY launch
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
+
+install(DIRECTORY cfg
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
+
+install(DIRECTORY test
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
+
