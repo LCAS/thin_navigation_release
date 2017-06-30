@@ -2,6 +2,11 @@
 Changelog for package thin_navigation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.0.3 (2017-05-22)
+------------------
+* added install targets
+* Contributors: Marc Hanheide
+
 0.0.2 (2017-05-22)
 ------------------
 * added std_srvs as dep
