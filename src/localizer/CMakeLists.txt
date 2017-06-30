@@ -20,3 +20,9 @@ target_link_libraries(thin_localizer_node
   ${catkin_LIBRARIES}
   ${OpenCV_LIBS} 
 )
+
+install(TARGETS thin_localizer_node thin_navigation_localizer_library
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)

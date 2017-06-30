@@ -23,3 +23,8 @@ target_link_libraries(thin_planner_node
 )
 
 
+install(TARGETS thin_navigation_planner_library thin_planner_node 
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
